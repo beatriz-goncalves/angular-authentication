@@ -61,7 +61,13 @@ export class LoginSignupComponent implements OnInit {
 
   login() {
     try {
-      this.authenticationService.login(this.authenticationForm.value);
+      const userLogged = this.authenticationService.login(
+        this.authenticationForm.value
+      );
+      sessionStorage.setItem(
+        'userLogged',
+        JSON.stringify(userLogged.userAuthentication)
+      );
       this.router.navigate(['/homePage']);
     } catch (error: any) {
       this.hasError = true;
