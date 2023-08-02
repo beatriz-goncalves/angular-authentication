@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Encryption, UserAuthentication } from '../models/userAuthentication';
+import { Encryption, UserAuthentication } from '@core/userAuthentication';
 import * as uuid from 'uuid';
 
 @Injectable({
