@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Encryption, UserAuthentication } from '../models/userAuthentication';
+import * as uuid from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -74,7 +75,7 @@ export class AuthenticationService {
     isLogged: boolean
   ): UserAuthentication {
     return {
-      id: 0,
+      id: Number(uuid.v4()),
       name: userAuthentication.name,
       email: userAuthentication.email,
       password: this.encryptAndDecryptPassword(
