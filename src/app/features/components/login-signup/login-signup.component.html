@@ -1,0 +1,37 @@
+<div class="grid-container">
+    <div class="grid-item">
+        <div class="title">
+            {{hasSignup()?'Signup':'Login'}}
+        </div>
+    </div>
+    <div class="grid-item">
+        <form class="content">
+            <div class="grid-container">
+                <div class="grid-item" *ngIf="hasSignup()">
+                    <label><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name">
+                </div>
+                <div class="grid-item">
+                    <label><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+                <div class="grid-item">
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password">
+                </div>
+                <div class="grid-item">
+                    <button type="submit"> {{hasSignup()?'Signup':'Login'}}</button>
+                </div>
+                <div class="grid-item" *ngIf="hasSignup()">
+                    <a href="/">Go Back</a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <div class="information" style="cursor: pointer;" routerLink="/signup">
+            Don't have an account? <b>Sign up</b>
+        </div>
+    </div>
+</div>
