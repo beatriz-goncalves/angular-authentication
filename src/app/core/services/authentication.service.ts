@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Encryption, UserAuthentication } from '@core/userAuthentication';
-import * as uuid from 'uuid';
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({
@@ -76,7 +75,7 @@ export class AuthenticationService {
     isLogged: boolean
   ): UserAuthentication {
     return {
-      id: Number(uuid.v4()),
+      id: this.fetchUsers().length + 1,
       name: userAuthentication.name,
       email: userAuthentication.email,
       password: this.encryptAndDecryptPassword(
