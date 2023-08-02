@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Encryption, UserAuthentication } from '@core/userAuthentication';
 import * as uuid from 'uuid';
+import * as CryptoJS from 'crypto-js';
 
 @Injectable({
   providedIn: 'root',

@@ -5,26 +5,27 @@
         </div>
     </div>
     <div class="grid-item">
-        <form class="content">
+        <form class="content" [formGroup]="authenticationForm" (ngSubmit)="submit()">
             <div class="grid-container">
                 <div class="grid-item" *ngIf="hasSignup()">
                     <label><b>Name</b></label>
-                    <input type="text" placeholder="Enter Name">
+                    <input type="text" formControlName="name" id="name" #name placeholder="Enter Name">
                 </div>
                 <div class="grid-item">
                     <label><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email">
+                    <input type="email" formControlName="email" id="email" #email placeholder="Enter Email">
                 </div>
                 <div class="grid-item">
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password">
+                    <input type="password" formControlName="password" id="password" #password
+                        placeholder="Enter Password">
                 </div>
                 <div class="grid-item">
-                    <button type="submit"> {{hasSignup()?'Signup':'Login'}}</button>
+                    <button type="submit" [disabled]="!authenticationForm.valid">
+                        {{hasSignup()?'Signup':'Login'}}</button>
                 </div>
                 <div class="grid-item" *ngIf="hasSignup()">
                     <a href="/">Go Back</a>
-
                 </div>
             </div>
         </form>
