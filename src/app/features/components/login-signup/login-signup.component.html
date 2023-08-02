@@ -20,6 +20,11 @@
                     <input type="password" formControlName="password" id="password" #password
                         placeholder="Enter Password">
                 </div>
+                <div class="grid-item" *ngIf="hasError">
+                    <div class="information">
+                        {{errorMessage}}
+                    </div>
+                </div>
                 <div class="grid-item">
                     <button type="submit" [disabled]="!authenticationForm.valid">
                         {{hasSignup()?'Signup':'Login'}}</button>

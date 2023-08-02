@@ -63,8 +63,9 @@ export class LoginSignupComponent implements OnInit {
     try {
       this.authenticationService.login(this.authenticationForm.value);
       this.router.navigate(['/homePage']);
-    } catch (error) {
-      console.log('ERROR: ', error);
+    } catch (error: any) {
+      this.hasError = true;
+      this.errorMessage = error.message;
     }
   }
 
@@ -72,8 +73,9 @@ export class LoginSignupComponent implements OnInit {
     try {
       this.authenticationService.signup(this.authenticationForm.value);
       this.router.navigate(['']);
-    } catch (error) {
-      console.log('ERROR: ', error);
+    } catch (error: any) {
+      this.hasError = true;
+      this.errorMessage = error.message;
     }
   }
 
