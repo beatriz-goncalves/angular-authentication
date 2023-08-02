@@ -77,7 +77,10 @@ export class AuthenticationService {
       id: 0,
       name: userAuthentication.name,
       email: userAuthentication.email,
-      password: userAuthentication.password,
+      password: this.encryptAndDecryptPassword(
+        Encryption.encrypt,
+        userAuthentication.password
+      ),
       isLogged: isLogged,
     };
   }
